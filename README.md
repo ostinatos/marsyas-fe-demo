@@ -3,7 +3,7 @@
 
 incorporate bootstrap and react to build a demo.
 
-ferencing:
+reference:
  React comment box example from [the React tutorial](http://facebook.github.io/react/docs/tutorial.html).
 
 ## To use
