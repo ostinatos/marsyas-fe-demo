@@ -1,8 +1,10 @@
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-# React Tutorial
+# Marsyas frontend demo
 
-This is the React comment box example from [the React tutorial](http://facebook.github.io/react/docs/tutorial.html).
+incorporate bootstrap and react to build a demo.
+
+ferencing:
+ React comment box example from [the React tutorial](http://facebook.github.io/react/docs/tutorial.html).
 
 ## To use
 
@@ -15,34 +17,6 @@ npm install
 node server.js
 ```
 
-### Python
-
-```sh
-pip install -r requirements.txt
-python server.py
-```
-
-### Ruby
-```sh
-ruby server.rb
-```
-
-### PHP
-```sh
-php server.php
-```
-
-### Go
-```sh
-go run server.go
-```
-
-### Perl
-
-```sh
-cpan Mojolicious
-perl server.pl
-```
 
 And visit <http://localhost:3000/>. Try opening multiple tabs!
 
