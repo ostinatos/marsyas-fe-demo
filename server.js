@@ -16,7 +16,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
-var COMMENTS_FILE = path.join(__dirname, 'comments.json');
+var ITEMS_FILE = path.join(__dirname, 'items.json');
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -24,8 +24,8 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/api/comments', function(req, res) {
-  fs.readFile(COMMENTS_FILE, function(err, data) {
+app.get('/api/items', function(req, res) {
+  fs.readFile(ITEMS_FILE, function(err, data) {
     if (err) {
       console.error(err);
       process.exit(1);
@@ -35,13 +35,13 @@ app.get('/api/comments', function(req, res) {
   });
 });
 
-app.post('/api/comments', function(req, res) {
-  fs.readFile(COMMENTS_FILE, function(err, data) {
+app.post('/api/items', function(req, res) {
+  fs.readFile(ITEMS_FILE, function(err, data) {
     if (err) {
       console.error(err);
       process.exit(1);
     }
-    var comments = JSON.parse(data);
+    var items = JSON.parse(data);
     // NOTE: In a real implementation, we would likely rely on a database or
     // some other approach (e.g. UUIDs) to ensure a globally unique id. We'll
     // treat Date.now() as unique-enough for our purposes.
@@ -50,14 +50,14 @@ app.post('/api/comments', function(req, res) {
       author: req.body.author,
       text: req.body.text,
     };
-    comments.push(newComment);
-    fs.writeFile(COMMENTS_FILE, JSON.stringify(comments, null, 4), function(err) {
+    items.push(newComment);
+    fs.writeFile(ITEMS_FILE, JSON.stringify(items, null, 4), function(err) {
       if (err) {
         console.error(err);
         process.exit(1);
       }
       res.setHeader('Cache-Control', 'no-cache');
-      res.json(comments);
+      res.json(items);
     });
   });
 });

@@ -1,12 +1,36 @@
 //item list component
 var ItemList=React.createClass({
+
+	loadDataFromServer:function(){
+		$.ajax(
+		    {
+		      url: this.props.url,
+		      dataType: 'json',
+		      cache: false,
+		      success: function(data){
+		        this.setState({data: data});//set returned data to component state
+		      }.bind(this),
+		      error: function(xhr, status, err){
+		        console.error(this.props.url, status, err.toString());
+		      }.bind(this)
+		    }
+      	);
+	},
+	//react native function: component initialization function
 	componentDidMount:function(){
-		this.setState({data:data});
+		//this.setState({data:data});
+		this.loadDataFromServer();
+	},
+
+	//react native function: initialize state, before componentDidMount
+	getInitialState:function(){
+		//this is crucial, without this the render() method will throw error, because this.state.data will be undefined
+		return {data:[]};
 	},
 
 	render:function(){
 		//list of item nodes
-		var itemNode = this.props.data.map(
+		var itemNode = this.state.data.map(
 			function(item){
 				return (
 <div  className="row list-group-item" key={item.id}>
@@ -54,6 +78,6 @@ var data = [{
 
 ReactDOM.render(
   // <CommentBox data={data}/>,
-  <ItemList data={data}/>,
+  <ItemList url="api/items"/>,
   document.getElementById('content')
 );

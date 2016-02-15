@@ -1,0 +1,24 @@
+[{
+	"id": "1",
+	"albumName": "Wave Function Collapse",
+	"imgSrc": "http://img6.douban.com/mpic/s28271478.jpg",
+	"artist": "Broken Thoughts",
+	"releaseDate": "2015",
+	"label":"Self-Released"
+},
+{
+	"id": "2",
+	"albumName": "Polaris",
+	"imgSrc": "http://img3.douban.com/mpic/s28313901.jpg",
+	"artist": "Tesseract",
+	"releaseDate": "2015",
+	"label":"Self-Released"
+},
+{
+	"id": "3",
+	"albumName": "From Sleep",
+	"imgSrc": "http://img6.douban.com/mpic/s28111647.jpg",
+	"artist": "Max Richter",
+	"releaseDate": "2015-09-04",
+	"label":"Deutsche Grammophon"
+}]
