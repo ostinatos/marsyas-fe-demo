@@ -3,6 +3,7 @@ var DemoApp=React.createClass(
 	{
 		getInitialState:function(){
 			return {
+				activeNavItemIndex:"Digging",
 				data:[]
 			}
 		},
@@ -23,9 +24,14 @@ var DemoApp=React.createClass(
 				default:
 				tmpListUrl="api/items";
 			}
-			
-			this.loadDataFromServer(tmpListUrl);
-			
+
+			//update data only if user clicked a tab other than current tab
+			if(navIndex!=this.state.activeNavItemIndex){
+				this.loadDataFromServer(tmpListUrl);
+			}
+
+			//update active tab index
+			this.setState({activeNavItemIndex:navIndex});			
 		},
 		loadDataFromServer:function(listUrl){
 			$.ajax(
