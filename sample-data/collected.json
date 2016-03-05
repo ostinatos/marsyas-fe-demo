@@ -1,0 +1,24 @@
+[{
+	"id": "4",
+	"albumName": "Beating a Dead Horse",
+	"imgSrc": "https://img1.doubanio.com/mpic/s28103677.jpg",
+	"artist": "Jarrod Alonge",
+	"releaseDate": "2015-05-26",
+	"label":"Self-Released"
+},
+{
+	"id": "5",
+	"albumName": "Language",
+	"imgSrc": "https://img3.doubanio.com/mpic/s27350151.jpg",
+	"artist": "The Contortionist",
+	"releaseDate": "2014",
+	"label":"Fluid Audio"
+},
+{
+	"id": "6",
+	"albumName": "Bob Moses ",
+	"imgSrc": "https://img1.doubanio.com/mpic/s28294643.jpg",
+	"artist": "Bob Moses",
+	"releaseDate": "2015-09-18",
+	"label":"eilean rec."
+}]

@@ -16,7 +16,10 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 
-var ITEMS_FILE = path.join(__dirname, 'items.json');
+var ITEMS_FILE = path.join(__dirname, 'sample-data/items.json');
+var ITEMS_WISH_FILE = path.join(__dirname, 'sample-data/wishlist.json');
+var ITEMS_COLLECT_FILE = path.join(__dirname, 'sample-data/collected.json');
+
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -26,6 +29,28 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/api/items', function(req, res) {
   fs.readFile(ITEMS_FILE, function(err, data) {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
+    res.setHeader('Cache-Control', 'no-cache');
+    res.json(JSON.parse(data));
+  });
+});
+
+app.get('/api/items/wishlist', function(req, res) {
+  fs.readFile(ITEMS_WISH_FILE, function(err, data) {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
+    res.setHeader('Cache-Control', 'no-cache');
+    res.json(JSON.parse(data));
+  });
+});
+
+app.get('/api/items/collected', function(req, res) {
+  fs.readFile(ITEMS_COLLECT_FILE, function(err, data) {
     if (err) {
       console.error(err);
       process.exit(1);
